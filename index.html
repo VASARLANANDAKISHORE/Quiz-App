@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Interactive, responsive quiz app" />
+    <title>QuizMaster — Interactive Quiz</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header" role="banner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">❖</span>
+        <span class="brand-name">QuizMaster</span>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-button" aria-label="Toggle theme" title="Toggle theme">
+          <span class="icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="app" class="app" role="main">
+      <!-- Start Screen -->
+      <section id="start-screen" class="screen is-active" aria-labelledby="start-title">
+        <div class="card">
+          <h1 id="start-title" class="title">Ready to test your knowledge?</h1>
+          <p class="subtitle">10 curated questions across general topics. Time to shine!</p>
+
+          <div class="controls">
+            <button id="startBtn" class="button primary">Start Quiz</button>
+          </div>
+
+          <div class="meta">
+            <div class="meta-item">
+              <span class="meta-label">Questions</span>
+              <span class="meta-value">10</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Mode</span>
+              <span class="meta-value">Single-player</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Best score</span>
+              <span id="bestScore" class="meta-value">—</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quiz Screen -->
+      <section id="quiz-screen" class="screen" aria-labelledby="quiz-title" aria-live="polite" aria-atomic="false">
+        <div class="card">
+          <div class="progress">
+            <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+          </div>
+
+          <div class="quiz-header">
+            <h2 id="quiz-title" class="quiz-title">Question</h2>
+            <div class="quiz-count"><span id="questionIndex">1</span>/<span id="questionTotal">10</span></div>
+          </div>
+
+          <p id="questionText" class="question-text"></p>
+
+          <ul id="choicesList" class="choices" role="listbox" aria-label="Answer choices"></ul>
+
+          <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+          <div class="controls spaced">
+            <button id="nextBtn" class="button" disabled>Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Result Screen -->
+      <section id="result-screen" class="screen" aria-labelledby="result-title">
+        <div class="card">
+          <h2 id="result-title" class="title">Your results</h2>
+          <p class="score-line">
+            <span class="score-label">Score</span>
+            <span id="finalScore" class="score-value">0/10</span>
+          </p>
+          <p id="scoreRemark" class="score-remark"></p>
+
+          <div id="reviewList" class="review"></div>
+
+          <div class="controls spaced">
+            <button id="retryBtn" class="button">Try Again</button>
+            <button id="shareBtn" class="button secondary">Share</button>
+          </div>
+        </div>
+        <div id="confetti" aria-hidden="true" class="confetti-container"></div>
+      </section>
+
+      <div id="liveRegion" class="sr-only" role="status" aria-live="polite"></div>
+    </main>
+
+    <footer class="app-footer" role="contentinfo">
+      <p>Made with ♥ for the web. Host on <a href="https://pages.github.com" target="_blank" rel="noreferrer">GitHub Pages</a>.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html> 
